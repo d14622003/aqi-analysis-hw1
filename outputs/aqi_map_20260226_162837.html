@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f5098de183e85281d2e8ea65d140e15a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed; 
+                    top: 10px; right: 10px; width: 150px; height: 120px; 
+                    background-color: white; border:2px solid grey; z-index:9999; 
+                    font-size:14px; padding: 10px">
+        <h4>AQI 指標</h4>
+        <p><i class="fa fa-circle" style="color:green"></i> 0-50 良好</p>
+        <p><i class="fa fa-circle" style="color:yellow"></i> 51-100 普通</p>
+        <p><i class="fa fa-circle" style="color:red"></i> 101+ 不健康</p>
+        </div>
+        
+    
+            <div class="folium-map" id="map_f5098de183e85281d2e8ea65d140e15a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f5098de183e85281d2e8ea65d140e15a = L.map(
+                "map_f5098de183e85281d2e8ea65d140e15a",
+                {
+                    center: [23.8, 120.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6ae08afc4f29bcc259eaae9d1c165b29 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6ae08afc4f29bcc259eaae9d1c165b29.addTo(map_f5098de183e85281d2e8ea65d140e15a);
+        
+    
+            var circle_marker_02cf57a735f51586f42a367267a0e2d6 = L.circleMarker(
+                [25.0478, 121.517],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_f5098de183e85281d2e8ea65d140e15a);
+        
+    
+        var popup_a8dfc0226a5bf840670cee1f26f80a0c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b21571ead29fa72f1366aaf58103c2a = $(`<div id="html_5b21571ead29fa72f1366aaf58103c2a" style="width: 100.0%; height: 100.0%;">                     <div style="font-size: 14px; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">台北</h4>                     <p style="margin: 3px 0;"><b>所在地:</b> 台北市 台北</p>                     <p style="margin: 3px 0;"><b>即時 AQI:</b> <span style="font-size: 16px; font-weight: bold; color: green;">45</span></p>                     <p style="margin: 3px 0;"><b>空氣品質:</b> 良好</p>                     </div>                     </div>`)[0];
+                popup_a8dfc0226a5bf840670cee1f26f80a0c.setContent(html_5b21571ead29fa72f1366aaf58103c2a);
+            
+        
+
+        circle_marker_02cf57a735f51586f42a367267a0e2d6.bindPopup(popup_a8dfc0226a5bf840670cee1f26f80a0c)
+        ;
+
+        
+    
+    
+            var circle_marker_c355460ec126adda45ded6e1f2ac38d7 = L.circleMarker(
+                [24.9675, 121.5406],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_f5098de183e85281d2e8ea65d140e15a);
+        
+    
+        var popup_73b5585e82aaf10a5be1527bb52777a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2fcca2692446ff44332b755dd7bae946 = $(`<div id="html_2fcca2692446ff44332b755dd7bae946" style="width: 100.0%; height: 100.0%;">                     <div style="font-size: 14px; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新店</h4>                     <p style="margin: 3px 0;"><b>所在地:</b> 新北市 新店</p>                     <p style="margin: 3px 0;"><b>即時 AQI:</b> <span style="font-size: 16px; font-weight: bold; color: yellow;">78</span></p>                     <p style="margin: 3px 0;"><b>空氣品質:</b> 普通</p>                     </div>                     </div>`)[0];
+                popup_73b5585e82aaf10a5be1527bb52777a9.setContent(html_2fcca2692446ff44332b755dd7bae946);
+            
+        
+
+        circle_marker_c355460ec126adda45ded6e1f2ac38d7.bindPopup(popup_73b5585e82aaf10a5be1527bb52777a9)
+        ;
+
+        
+    
+    
+            var circle_marker_ad334bcc5b80605c6eafaf8c84da8d70 = L.circleMarker(
+                [25.0129, 121.4649],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_f5098de183e85281d2e8ea65d140e15a);
+        
+    
+        var popup_5b87ac975913b882dea55e3a6beae0e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_caba1a0bd0da8ab8aa7383f233248ecf = $(`<div id="html_caba1a0bd0da8ab8aa7383f233248ecf" style="width: 100.0%; height: 100.0%;">                     <div style="font-size: 14px; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">板橋</h4>                     <p style="margin: 3px 0;"><b>所在地:</b> 新北市 板橋</p>                     <p style="margin: 3px 0;"><b>即時 AQI:</b> <span style="font-size: 16px; font-weight: bold; color: red;">125</span></p>                     <p style="margin: 3px 0;"><b>空氣品質:</b> 對敏感族群不健康</p>                     </div>                     </div>`)[0];
+                popup_5b87ac975913b882dea55e3a6beae0e9.setContent(html_caba1a0bd0da8ab8aa7383f233248ecf);
+            
+        
+
+        circle_marker_ad334bcc5b80605c6eafaf8c84da8d70.bindPopup(popup_5b87ac975913b882dea55e3a6beae0e9)
+        ;
+
+        
+    
+    
+            var circle_marker_c04be58c88786556e35ffda6eec952fc = L.circleMarker(
+                [24.1477, 120.6736],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_f5098de183e85281d2e8ea65d140e15a);
+        
+    
+        var popup_d60491a0afd8ac4081e8ffdd1ff3f005 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_158d1303cc79f711cf32f8268ec6ad04 = $(`<div id="html_158d1303cc79f711cf32f8268ec6ad04" style="width: 100.0%; height: 100.0%;">                     <div style="font-size: 14px; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">台中</h4>                     <p style="margin: 3px 0;"><b>所在地:</b> 台中市 台中</p>                     <p style="margin: 3px 0;"><b>即時 AQI:</b> <span style="font-size: 16px; font-weight: bold; color: yellow;">89</span></p>                     <p style="margin: 3px 0;"><b>空氣品質:</b> 普通</p>                     </div>                     </div>`)[0];
+                popup_d60491a0afd8ac4081e8ffdd1ff3f005.setContent(html_158d1303cc79f711cf32f8268ec6ad04);
+            
+        
+
+        circle_marker_c04be58c88786556e35ffda6eec952fc.bindPopup(popup_d60491a0afd8ac4081e8ffdd1ff3f005)
+        ;
+
+        
+    
+    
+            var circle_marker_5952ca89f05bf9c67159151c3ae2cf47 = L.circleMarker(
+                [22.6273, 120.3014],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_f5098de183e85281d2e8ea65d140e15a);
+        
+    
+        var popup_b8d19a8e55931deb62cc9576512d8f78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e73101cd2175c1ad6d2440417e34c8f4 = $(`<div id="html_e73101cd2175c1ad6d2440417e34c8f4" style="width: 100.0%; height: 100.0%;">                     <div style="font-size: 14px; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">高雄</h4>                     <p style="margin: 3px 0;"><b>所在地:</b> 高雄市 高雄</p>                     <p style="margin: 3px 0;"><b>即時 AQI:</b> <span style="font-size: 16px; font-weight: bold; color: red;">156</span></p>                     <p style="margin: 3px 0;"><b>空氣品質:</b> 對所有族群不健康</p>                     </div>                     </div>`)[0];
+                popup_b8d19a8e55931deb62cc9576512d8f78.setContent(html_e73101cd2175c1ad6d2440417e34c8f4);
+            
+        
+
+        circle_marker_5952ca89f05bf9c67159151c3ae2cf47.bindPopup(popup_b8d19a8e55931deb62cc9576512d8f78)
+        ;
+
+        
+    
+</script>
+</html>
